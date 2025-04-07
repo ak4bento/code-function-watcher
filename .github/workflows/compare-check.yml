@@ -1,0 +1,50 @@
+name: Check Similar Functions
+
+on:
+  pull_request:
+    paths:
+      - '**.go'
+  push:
+    branches: [ main ]
+
+jobs:
+  compare-similarity:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+
+      - name: Install dependencies
+        run: go mod download
+
+      - name: Compare old vs new
+        run: |
+          go run main.go compare data/functions-old.json data/functions-new.json > compare-report.txt
+          cat compare-report.txt
+
+      - name: Fail if similarity detected
+        run: |
+          if grep -q "⚠️" compare-report.txt; then
+            echo "::error ::Found similar/duplicated functions!"
+            exit 1
+          fi
+
+      - name: Comment on PR (if needed)
+        if: github.event_name == 'pull_request' && failure()
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: similar-functions
+          message: |
+            🚨 **Potentially Similar Functions Detected**
+            
+            ```
+            $(cat compare-report.txt)
+            ```
+
+            > Please review duplicated code and consider refactoring or DRY-ing it up.

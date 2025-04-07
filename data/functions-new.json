@@ -1,0 +1,12 @@
+[
+  {
+    "name": "GetUserById",
+    "file": "/Users/akil/Documents/Project/go-package/code-function-watcher/dummy/new.go",
+    "position": 3
+  },
+  {
+    "name": "CreateOrderData",
+    "file": "/Users/akil/Documents/Project/go-package/code-function-watcher/dummy/new.go",
+    "position": 4
+  }
+]

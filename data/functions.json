@@ -1,0 +1,57 @@
+[
+  {
+    "name": "main",
+    "file": "cmd/funcscan/main.go",
+    "position": 14
+  },
+  {
+    "name": "GetUserById",
+    "file": "dummy/new.go",
+    "position": 3
+  },
+  {
+    "name": "CreateOrderData",
+    "file": "dummy/new.go",
+    "position": 4
+  },
+  {
+    "name": "GetUserByID",
+    "file": "dummy/old.go",
+    "position": 3
+  },
+  {
+    "name": "CreateOrder",
+    "file": "dummy/old.go",
+    "position": 4
+  },
+  {
+    "name": "LoadFromJSON",
+    "file": "pkg/compare/compare.go",
+    "position": 18
+  },
+  {
+    "name": "Compare",
+    "file": "pkg/compare/compare.go",
+    "position": 31
+  },
+  {
+    "name": "LoadFromFile",
+    "file": "pkg/compare/compare.go",
+    "position": 50
+  },
+  {
+    "name": "ExportToJSON",
+    "file": "pkg/exporter/exporter.go",
+    "position": 11
+  },
+  {
+    "name": "Scan",
+    "file": "pkg/scanner/scanner.go",
+    "position": 18
+  },
+  {
+    "name": "IsSimilar",
+    "file": "pkg/similarity/similarity.go",
+    "position": 4
+  }
+]
