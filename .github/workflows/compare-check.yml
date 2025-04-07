@@ -30,7 +30,7 @@ jobs:
 
       - name: Fail if similarity detected
         run: |
-          if grep -q "⚠️" compare-report.txt; then
+          if grep -q compare-report.txt; then
             echo "::error ::Found similar/duplicated functions!"
             exit 1
           fi
@@ -41,7 +41,7 @@ jobs:
         with:
           header: similar-functions
           message: |
-            🚨 **Potentially Similar Functions Detected**
+            **Potentially Similar Functions Detected**
             
             ```
             $(cat compare-report.txt)

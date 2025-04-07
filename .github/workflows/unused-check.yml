@@ -30,7 +30,7 @@ jobs:
           
       - name: Fail if unused functions found
         run: |
-          if grep -q "⚠️" unused-report.txt; then
+          if grep -q unused-report.txt; then
             echo "::error ::Found unused functions!"
             exit 1
           fi
@@ -41,7 +41,7 @@ jobs:
         with:
           header: unused-functions
           message: |
-            🚨 **Unused Function(s) Detected**
+            **Unused Function(s) Detected**
             
             ```
             $(cat unused-report.txt)
